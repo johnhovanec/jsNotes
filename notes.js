@@ -17,3 +17,7 @@ var countsByType = entries.reduce(function (allEntries, entry) {
         }
         return allEntries;
     }, {});
+
+// Loops
+// for ... of => for iterables and strings, maps, sets, generators, DOM node collections and the arguments object available inside a functions.
+// for ... in => for object keys, or to get the index of an iterable
