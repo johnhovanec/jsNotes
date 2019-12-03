@@ -33,6 +33,13 @@ const sum = entries.reduce((prev, cur) => {
       }, 0);
 ```
 
+```javascript
+// Optional parameter assignment
+function getLandRiverSegment(lat, lng) {
+        lat = lat || this.state.data.lat;
+        lng = lng || this.state.data.lng;
+````
+
 #### Loops
 `for ... of => ` for iterables and strings, maps, sets, generators, DOM node collections and the arguments object available inside a functions.
 `for ... in => ` for object keys, or to get the index of an iterable
