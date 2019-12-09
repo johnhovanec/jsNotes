@@ -33,6 +33,14 @@ const sum = entries.reduce((prev, cur) => {
       }, 0);
 ```
 
+``` javascript
+// Using map to switch lat lng order. Geoprocessing service returns in [lng,lat], need to convert to [lat,lng] order
+    const orderedArray = []
+    mergedGeometry.map(x => {
+	orderedArray.push( [x[1], x[0]] );
+});
+```
+
 ```javascript
 // Optional parameter assignment
 function getLandRiverSegment(lat, lng) {
