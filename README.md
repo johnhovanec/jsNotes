@@ -48,6 +48,19 @@ function getLandRiverSegment(lat, lng) {
         lng = lng || this.state.data.lng;
 ````
 
+``` js
+// Check if array contains one element from another array
+// Longer way
+function findOneElement (array1, array2) {
+    return array2.some(function (x) {
+        return array1.includes(x);
+    });
+};
+
+// Shorter ES6 way
+array1.some(x => array2.includes(x))
+```
+
 #### Loops
 `for ... of => ` for iterables and strings, maps, sets, generators, DOM node collections and the arguments object available inside a functions.
 `for ... in => ` for object keys, or to get the index of an iterable
