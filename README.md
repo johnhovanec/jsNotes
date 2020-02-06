@@ -3,7 +3,7 @@ Snippets of useful code samples for JavaScript and some React
 
 ### Javascript
 ``` javascript
-// Returning an object from map
+// Returning an object from map with a subset of fields
 objectArray.map(obj => {
     var rObj = {}
     rObj['ApplicationId'] = obj.ApplicationId;
@@ -31,6 +31,18 @@ const sum = entries.reduce((prev, cur) => {
             prev += Number(cur.area_for_calculation)
         return prev;
       }, 0);
+```
+
+```js
+// Using reduce over an array of objects to bring back only certain objects that match a condition
+var checked = bmpFilterStatusCheckboxes.reduce((acc, curr) => {
+    if (curr.checked === true)
+        acc.push(curr);
+    return acc;
+}, [])
+
+// Extending the above example to then filter another array of objects that have a field matching those results
+var res = entries.filter(e => checked.includes(e.status))
 ```
 
 ``` javascript
