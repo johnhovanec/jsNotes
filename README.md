@@ -73,9 +73,9 @@ function findOneElement (array1, array2) {
 array1.some(x => array2.includes(x))
 ```
 #### Maps
-```
-// Maps provide the ability to hold key value pairs in order
+Maps provide the ability to hold key value pairs in order, and are also iterable
 
+```js
 // To return only the values within a map that meet a condition
 const filteredMap = new Map(
   [...originalMap]
