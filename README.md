@@ -72,6 +72,14 @@ function findOneElement (array1, array2) {
 // Shorter ES6 way
 array1.some(x => array2.includes(x))
 ```
+#### Maps
+// Maps provide the ability to hold key value pairs in order
+
+// To return only the values within a map that meet a condition
+const filteredMap = new Map(
+  [...originalMap]
+  .filter(([k, v]) => v < 3 )
+);
 
 #### Loops
 `for ... of => ` for iterables and strings, maps, sets, generators, DOM node collections and the arguments object available inside a functions.
