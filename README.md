@@ -1,7 +1,7 @@
 # jsNotes
 Snippets of useful code samples for JavaScript and some React
 
-### Javascript
+## Javascript
 ``` javascript
 // Returning an object from map with a subset of fields
 objectArray.map(obj => {
@@ -87,8 +87,16 @@ const filteredMap = new Map(
 `for ... of => ` for iterables and strings, maps, sets, generators, DOM node collections and the arguments object available inside a functions.
 `for ... in => ` for object keys, or to get the index of an iterable
 
+## React
+Using a variable to assign a property key in state
+```js
+this.setState({
+	[`${stateKey}`]: 'someValue'
+});
+```
 
-### Leaflet and react-leaflet
+
+## Leaflet and react-leaflet
 #### Example to get bounds for a polygon:
 ```
 class FilteredExtent extends React.Component {
