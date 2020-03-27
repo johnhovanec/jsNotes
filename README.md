@@ -87,6 +87,51 @@ const filteredMap = new Map(
 `for ... of => ` for iterables and strings, maps, sets, generators, DOM node collections and the arguments object available inside a functions.
 `for ... in => ` for object keys, or to get the index of an iterable
 
+
+#### Promises
+// An example of converting AWS JavaScript SDK callbacks to use Promises
+```js
+// Use this if modifying an existing API. Note you will need to set the restApiId for the API.
+const getResources = (restApiId) => {
+    return apig.getResources({ restApiId: restApiId }).promise()
+        .then((data) => {
+            const parentId = data.items[0].parentId;
+            return parentId;
+        });
+}
+
+// Creates the resource using the parentId found
+const createResource = (parentId) => {
+    return apig.createResource({ restApiId: restApiId, parentId: parentId, pathPart: 'Affiliates' }).promise()
+        .then((data) => {
+            const parentId = data.id;
+            return parentId;
+        });
+}
+
+// Create the method referencing the parent resource
+const createMethod = (parentId) => {
+    return apig.putMethod({ restApiId: restApiId, resourceId: parentId, httpMethod: 'GET', authorizationType: 'NONE' }).promise()
+        .then((data) => {
+            return {parentId, data};
+        });
+}
+
+// Set the Integration type for the method created.
+const createIntegration = (result) => {
+    return apig.putIntegration({ httpMethod: result.data.httpMethod, resourceId: result.parentId, restApiId: restApiId, type: 'AWS' }).promise()
+        .then((data) => {
+            return data;
+        });
+}
+
+getResources()
+    .then(parentId => createResource(parentId))
+    .then(parentId => createMethod(parentId))
+    .then(result => createIntegration(result))
+    .catch(err => console.error(err))
+```
+
 ## React
 Using a variable to assign a property key in state
 ```js
