@@ -140,6 +140,110 @@ this.setState({
 });
 ```
 
+### React CSS Animation
+// Used to animate transitions in an image carousel within Leaflet map popup
+```js
+import styled from 'styled-components';
+
+const ImageContainer = styled.div`
+    visibility: visible;
+    height: 200px;
+    opacity: 1;
+    transition: opacity 1s linear;
+`;
+
+export class PopUp extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            selectedImage: 0,
+            imgStyle: {
+                opacity: '1',
+                transition: 'opacity 1s ease-in'
+            }
+        }
+    }
+
+    handleClick = (e, { name }) => {
+        if (this.state.selectedImage != name) {
+            this.fadeOut(name);
+        }
+    }
+
+    // Fade-in an image set to a timeout the matches the fade-out duration
+    fadeIn = (name) => {
+        setTimeout(() => {
+            this.setState({
+                selectedImage: name,
+                imgStyle: {
+                    opacity: '1',
+                    transition: 'opacity 1s ease-out'
+                }
+            });
+        }, 300)
+    }
+
+    // Fade-out the existing image
+    fadeOut = (name) => {
+        this.setState({
+            imgStyle: {
+                opacity: '0',
+                transition: 'opacity 0.3s ease-in'
+            }
+        }, () => this.fadeIn(name));
+    }
+
+    render() {
+        const imgArray = this.props.item.images || [];
+	
+        return (
+            <Popup minWidth='270' maxWidth='600'>
+                <Grid verticalAlign='middle' centered>
+                    <Grid.Row>
+                        <h4>BMP Type: { getName(this.context.bmpTypes, this.props.item.bmpType, 'id', 'name') }</h4>
+                    </Grid.Row>
+                    <Grid.Row>
+                        { imgArray.length > 0
+                            ?
+                            <ImageContainer>
+                                <img src={ imgArray[this.state.selectedImage] } style={ this.state.imgStyle }></img>
+                            </ImageContainer>
+                            : 'No image available'
+                        }
+                    </Grid.Row>
+                    <Grid.Row>
+                        <ImageSelector
+                            images={ imgArray }
+                            handleSelection={ this.handleClick }
+                            selected={ this.state.selectedImage } />
+                    </Grid.Row>
+                </Grid>
+            </Popup>
+        );
+    }
+}
+
+// Component that holds the image selection buttons
+const ImageSelector = ({ images, handleSelection, selected }) => {
+    const buttons = images.map((item, index) =>
+        images.length > 1
+            ?
+            <List.Item
+                key={ item }
+                name={ index }
+                onClick={ handleSelection }
+            >
+                <Icon name={ selected == index ? 'circle outline' : 'circle' } />
+            </List.Item>
+            : null
+    );
+
+    return (
+        <List horizontal>{ buttons }</List>
+    )
+}
+```
 
 ## Leaflet and react-leaflet
 #### Example to get bounds for a polygon:
