@@ -89,7 +89,28 @@ const filteredMap = new Map(
 
 
 #### Promises
-// An example of converting AWS JavaScript SDK callbacks to use Promises
+// A single method example to convert an AWS JavaScript SDK callback to async/await
+```js
+// The original callback version
+documentclient.query(params, function(err, data) {
+  if (err) 
+  	console.log(err, err.stack); // an error occurred
+  else     
+  	console.log(data);           // successful response
+});
+
+async function getRecipients(params) {
+    const response = await docClient.query(params, (err) => {
+        if (err) {
+            console.log('Unable to query EmailRecipients table. Error: ', JSON.stringify( err, null, 2 ) );
+        }
+    }).promise();
+   
+    return response.Items.map(x => x.email_address);
+}
+```
+
+// An example of converting multiple AWS callbacks to use Promises in a chain
 ```js
 // Use this if modifying an existing API. Note you will need to set the restApiId for the API.
 const getResources = (restApiId) => {
