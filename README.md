@@ -75,6 +75,7 @@ array1.some(x => array2.includes(x))
 
 ```javascript
 // Find the max value within an array of objects. Data is an array of objects with a property 'dollarsObligated'
+// 0 is passed in case the array is empty
 const max = Math.max(...data.map(x => x.dollarsObligated), 0);
 ```
 
