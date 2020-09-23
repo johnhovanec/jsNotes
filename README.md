@@ -72,6 +72,12 @@ function findOneElement (array1, array2) {
 // Shorter ES6 way
 array1.some(x => array2.includes(x))
 ```
+
+```javascript
+// Find the max value within an array of objects. Data is an array of objects with a property 'dollarsObligated'
+const max = Math.max(...data.map(x => x.dollarsObligated), 0);
+```
+
 #### Maps
 Maps provide the ability to hold key value pairs in order, and are also iterable
 
