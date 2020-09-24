@@ -5,10 +5,17 @@ Snippets of useful code samples for JavaScript and some React
 ``` javascript
 // Returning an object from map with a subset of fields
 objectArray.map(obj => {
-    var rObj = {}
+    let rObj = {}
     rObj['ApplicationId'] = obj.ApplicationId;
-	rObj['Fid'] = obj.Fid;
+    rObj['Fid'] = obj.Fid;
     return rObj;
+});
+
+// Slight variation if looking to copy properties with spread operator and update a property
+const updatedObj = data.map(obj => {
+    let returnObj = { ...obj };
+    returnObj['dollarsObligated'] = Number(obj.dollarsObligated);
+    return returnObj;
 });
 ```
 
