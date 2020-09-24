@@ -62,15 +62,6 @@ const checked = bmpFilterStatusCheckboxes.reduce((acc, curr) => {
 var res = entries.filter(e => checked.includes(e.status))
 ```
 
-
-### Optional parameter assignment
-```javascript
-// Optional parameter assignment
-function getLandRiverSegment(lat, lng) {
-        lat = lat || this.state.data.lat;
-        lng = lng || this.state.data.lng;
-````
-
 ### `some`
 ``` js
 // Check if array contains one element from another array
@@ -92,7 +83,15 @@ array1.some(x => array2.includes(x))
 const max = Math.max(...data.map(x => x.dollarsObligated), 0);
 ```
 
-#### Map object
+### Optional parameter assignment
+```javascript
+// Optional parameter assignment
+function getLandRiverSegment(lat, lng) {
+        lat = lat || this.state.data.lat;
+        lng = lng || this.state.data.lng;
+````
+
+### `Map` object
 Maps provide the ability to hold key value pairs in order, and are also iterable
 
 ```js
