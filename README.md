@@ -20,6 +20,14 @@ const updatedObj = data.map(obj => {
 });
 ```
 
+``` javascript
+// Using map to switch lat lng order. Geoprocessing service returns in [lng,lat], need to convert to [lat,lng] order
+    const orderedArray = []
+    mergedGeometry.map(x => {
+	orderedArray.push( [x[1], x[0]] );
+});
+```
+
 ### `reduce`
 ``` javascript
 // Using reduce to sum the count of an object property
@@ -44,7 +52,7 @@ const sum = entries.reduce((prev, cur) => {
 
 ```js
 // Using reduce over an array of objects to bring back only certain objects that match a condition
-var checked = bmpFilterStatusCheckboxes.reduce((acc, curr) => {
+const checked = bmpFilterStatusCheckboxes.reduce((acc, curr) => {
     if (curr.checked === true)
         acc.push(curr);
     return acc;
@@ -54,14 +62,8 @@ var checked = bmpFilterStatusCheckboxes.reduce((acc, curr) => {
 var res = entries.filter(e => checked.includes(e.status))
 ```
 
-``` javascript
-// Using map to switch lat lng order. Geoprocessing service returns in [lng,lat], need to convert to [lat,lng] order
-    const orderedArray = []
-    mergedGeometry.map(x => {
-	orderedArray.push( [x[1], x[0]] );
-});
-```
 
+### Optional parameter assignment
 ```javascript
 // Optional parameter assignment
 function getLandRiverSegment(lat, lng) {
@@ -69,6 +71,7 @@ function getLandRiverSegment(lat, lng) {
         lng = lng || this.state.data.lng;
 ````
 
+### `some`
 ``` js
 // Check if array contains one element from another array
 // Longer way
@@ -82,13 +85,14 @@ function findOneElement (array1, array2) {
 array1.some(x => array2.includes(x))
 ```
 
+### `Math.max`
 ```javascript
 // Find the max value within an array of objects. Data is an array of objects with a property 'dollarsObligated'
 // 0 is passed in case the array is empty
 const max = Math.max(...data.map(x => x.dollarsObligated), 0);
 ```
 
-#### Maps
+#### Map object
 Maps provide the ability to hold key value pairs in order, and are also iterable
 
 ```js
