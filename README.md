@@ -102,13 +102,13 @@ const filteredMap = new Map(
 );
 ```
 
-#### Loops
+### Loops
 `for ... of => ` for iterables and strings, maps, sets, generators, DOM node collections and the arguments object available inside a functions.
 `for ... in => ` for object keys, or to get the index of an iterable
 
 
-#### Promises
-// A single method example to convert an AWS JavaScript SDK callback to async/await
+### Promises
+#### A single method example to convert an AWS JavaScript SDK callback to async/await
 ```js
 // The original callback version
 documentclient.query(params, function(err, data) {
@@ -129,7 +129,7 @@ async function getRecipients(params) {
 }
 ```
 
-// An example of converting multiple AWS callbacks to use Promises in a chain
+#### An example of converting multiple AWS callbacks to use Promises in a chain
 ```js
 // Use this if modifying an existing API. Note you will need to set the restApiId for the API.
 const getResources = (restApiId) => {
