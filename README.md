@@ -2,6 +2,7 @@
 Snippets of useful code samples for JavaScript and some React
 
 ## Javascript
+### `map`
 ``` javascript
 // Returning an object from map with a subset of fields
 objectArray.map(obj => {
@@ -19,6 +20,7 @@ const updatedObj = data.map(obj => {
 });
 ```
 
+### `reduce`
 ``` javascript
 // Using reduce to sum the count of an object property
 var countsByType = entries.reduce(function (allEntries, entry) {
