@@ -1,5 +1,5 @@
 # jsNotes
-Snippets of useful code samples for JavaScript and some React
+Snippets of useful code samples for JavaScript, React, Leaflet...
 
 ## Javascript
 ### `map`
@@ -29,6 +29,11 @@ const updatedObj = data.map(obj => {
 ```
 
 ### `reduce`
+```javascript
+// Get the object with highest price
+let max = items.reduce((acc, curr) => acc.price > curr.price ? acc : curr)
+```
+
 ``` javascript
 // Using reduce to sum the count of an object property
 var countsByType = entries.reduce(function (allEntries, entry) {
