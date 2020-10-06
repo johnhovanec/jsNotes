@@ -81,6 +81,20 @@ function findOneElement (array1, array2) {
 array1.some(x => array2.includes(x))
 ```
 
+### filter
+``` js
+// Find if an array of objects match a property in an array of filters
+itemsList.filter(item => item.group.includes(filters.find(filter => filter.includes(item.group))))
+
+// Longer way with a forEach loop
+let res = []
+itemsList.forEach((item) => {
+    if (filters.includes(item.group)) {
+    res.push(item);
+    }
+})
+```
+
 ### `Math.max`
 ```javascript
 // Find the max value within an array of objects. Data is an array of objects with a property 'dollarsObligated'
