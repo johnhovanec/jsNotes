@@ -18,6 +18,13 @@ const updatedObj = data.map(obj => {
     returnObj['dollarsObligated'] = Number(obj.dollarsObligated);
     return returnObj;
 });
+
+// Iterate through a collection of objects and add a new field based off of the index
+const updatedArray = array.map((obj, idx) => {
+    let rObj = {...obj}
+    rObj['id'] = idx;
+    return rObj;
+});
 ```
 
 ``` javascript
