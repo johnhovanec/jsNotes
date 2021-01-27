@@ -88,6 +88,12 @@ function findOneElement (array1, array2) {
 array1.some(x => array2.includes(x))
 ```
 
+### `sort`
+``` js
+// Sort an array of objects by a property value
+const sortedTopicList = topicList.sort((a, b) => (a.key > b.key ? 1 : -1));
+```
+
 ### filter
 ``` js
 // Find if an array of objects match a property in an array of filters
