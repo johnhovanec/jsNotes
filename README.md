@@ -28,7 +28,8 @@ const updatedArray = array.map((obj, index) => {
 ```
 
 ``` javascript
-// Using map to switch lat lng order. Geoprocessing service returns in [lng,lat], need to convert to [lat,lng] order
+// Using map to switch lat lng order. 
+// Geoprocessing service returns in [lng,lat], need to convert to [lat,lng] order
     const orderedArray = []
     mergedGeometry.map(x => {
 	orderedArray.push( [x[1], x[0]] );
@@ -63,19 +64,22 @@ const sum = entries.reduce((prev, cur) => {
 ```
 
 ```js
-// Using reduce over an array of objects to bring back only certain objects that match a condition
+// Using reduce over an array of objects 
+// to bring back only certain objects that match a condition
 const checked = bmpFilterStatusCheckboxes.reduce((acc, curr) => {
     if (curr.checked === true)
         acc.push(curr);
     return acc;
 }, [])
 
-// Extending the above example to then filter another array of objects that have a field matching those results
+// Extending the above example to then filter another array of objects 
+// that have a field matching those results
 var res = entries.filter(e => checked.includes(e.status))
 ```
 
 ```js
-// Iterate through an array of objects, summing certain properties, and then returning the sums in a new object
+// Iterate through an array of objects, summing certain properties, 
+// and then returning the sums in a new object
 const sum = unmappableEvents.reduce((acc, cur) => {
     acc.inPersonEvents = acc.inPersonEvents + Number(cur.properties.InPersonEvents);
     acc.virtualEvents = acc.virtualEvents + Number(cur.properties.VirtualEvents);
@@ -120,7 +124,8 @@ itemsList.forEach((item) => {
 
 ### `Math.max`
 ```javascript
-// Find the max value within an array of objects. Data is an array of objects with a property 'dollarsObligated'
+// Find the max value within an array of objects. 
+// Data is an array of objects with a property 'dollarsObligated'
 // 0 is passed in case the array is empty
 const max = Math.max(...data.map(x => x.dollarsObligated), 0);
 ```
@@ -145,7 +150,9 @@ const filteredMap = new Map(
 ```
 
 ### Loops
-`for ... of => ` for iterables and strings, maps, sets, generators, DOM node collections and the arguments object available inside a functions.
+`for ... of => ` for iterables and strings, maps, sets, generators,  
+DOM node collections and the arguments object available inside a functions.  
+
 `for ... in => ` for object keys, or to get the index of an iterable
 
 
@@ -193,7 +200,9 @@ const createResource = (parentId) => {
 
 // Create the method referencing the parent resource
 const createMethod = (parentId) => {
-    return apig.putMethod({ restApiId: restApiId, resourceId: parentId, httpMethod: 'GET', authorizationType: 'NONE' }).promise()
+    return apig.putMethod({ restApiId: restApiId, resourceId: parentId, 
+    	httpMethod: 'GET', authorizationType: 'NONE' })
+	.promise()
         .then((data) => {
             return {parentId, data};
         });
@@ -201,7 +210,9 @@ const createMethod = (parentId) => {
 
 // Set the Integration type for the method created.
 const createIntegration = (result) => {
-    return apig.putIntegration({ httpMethod: result.data.httpMethod, resourceId: result.parentId, restApiId: restApiId, type: 'AWS' }).promise()
+    return apig.putIntegration({ httpMethod: result.data.httpMethod, resourceId: result.parentId, 
+    	restApiId: restApiId, type: 'AWS' })
+	.promise()
         .then((data) => {
             return data;
         });
