@@ -74,6 +74,16 @@ const checked = bmpFilterStatusCheckboxes.reduce((acc, curr) => {
 var res = entries.filter(e => checked.includes(e.status))
 ```
 
+```js
+// Iterate through an array of objects, summing certain properties, and then returning the sums in a new object
+const sum = unmappableEvents.reduce((acc, cur) => {
+    acc.inPersonEvents = acc.inPersonEvents + Number(cur.properties.InPersonEvents);
+    acc.virtualEvents = acc.virtualEvents + Number(cur.properties.VirtualEvents);
+    acc.numEvents = acc.numEvents + Number(cur.properties.NumEvents);
+    return acc;
+},{ inPersonEvents: 0, virtualEvents: 0, numEvents: 0 });
+```
+
 ### `some`
 ``` js
 // Check if array contains one element from another array
