@@ -3,7 +3,7 @@ Snippets of useful code samples for JavaScript, React, Leaflet...
 
 ## Javascript
 ### `map`
-``` javascript
+``` js
 // Returning an object from map with a subset of fields using destructuring
 let data = [
     {a:1,b:5,c:9}, {a:2,b:6,c:10},
@@ -34,7 +34,7 @@ const updatedArray = array.map((obj, index) => {
 });
 ```
 
-``` javascript
+``` js
 // Using map to switch lat lng order. 
 // Geoprocessing service returns in [lng,lat], need to convert to [lat,lng] order
     const orderedArray = []
@@ -44,12 +44,12 @@ const updatedArray = array.map((obj, index) => {
 ```
 
 ### `reduce`
-```javascript
+```js
 // Get the object with highest price
 let max = items.reduce((acc, curr) => acc.price > curr.price ? acc : curr)
 ```
 
-``` javascript
+``` js
 // Using reduce to sum the count of an object property
 var countsByType = entries.reduce(function (allEntries, entry) {
         if (entry.bmpType in allEntries) {
@@ -61,7 +61,7 @@ var countsByType = entries.reduce(function (allEntries, entry) {
     }, {});
 ```
 
-``` javascript
+``` js
 // Using reduce to sum a field
 const sum = entries.reduce((prev, cur) => {
         if (!isNaN(cur.area_for_calculation))
@@ -93,6 +93,15 @@ const sum = unmappableEvents.reduce((acc, cur) => {
     acc.numEvents = acc.numEvents + Number(cur.properties.NumEvents);
     return acc;
 },{ inPersonEvents: 0, virtualEvents: 0, numEvents: 0 });
+```
+
+```js
+// Find objects that match on a property value from two arrays of objects
+featuresInExtent.reduce((acc, curr) => {
+    let match = features.find(feature => feature.COUNTY === curr.feature.properties.COUNTY)
+    acc.push(match);
+    return acc;
+},[])
 ```
 
 ### `some`
