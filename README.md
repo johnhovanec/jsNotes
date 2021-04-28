@@ -124,6 +124,19 @@ array1.some(x => array2.includes(x))
 const sortedTopicList = topicList.sort((a, b) => (a.key > b.key ? 1 : -1));
 ```
 
+```js
+// Sort an array of objects with a special case property that should always be first in the results 
+const sorted = content.sort((a, b) => {
+if (a.county && b.county === 'Statewide') {
+    return 1;
+}
+if (a.county === 'Statewide' && b.county) {
+    return -1;
+}
+return a.county > b.county ? 1 : -1;
+});
+```
+
 ### filter
 ``` js
 // Find if an array of objects match a property in an array of filters
