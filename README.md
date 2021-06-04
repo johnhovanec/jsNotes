@@ -22,7 +22,7 @@ objectArray.map(obj => {
 // Slight variation if looking to copy properties with spread operator and update a property
 const updatedObj = data.map(obj => {
     let returnObj = { ...obj };
-    returnObj['dollarsObligated'] = Number(obj.dollarsObligated);
+    returnObj.dollarsObligated = Number(obj.dollarsObligated);
     return returnObj;
 });
 
