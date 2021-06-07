@@ -32,9 +32,17 @@ const updatedArray = array.map((obj, index) => {
     returnObj.id = index;
     return returnObj;
 });
-```
 
-``` js
+// Update an array of objects property value with dynamic keys
+Object.entries(entry).map(([key, value]) => {
+    if (value === -999) {
+	entry[key] = 'Missing*';
+    } else if (value === -777) {
+	entry[key] = 'Suppressed*';
+    } 
+    return entry;
+});
+
 // Using map to switch lat lng order. 
 // Geoprocessing service returns in [lng,lat], need to convert to [lat,lng] order
     const orderedArray = []
