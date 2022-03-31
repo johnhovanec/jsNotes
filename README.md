@@ -426,3 +426,12 @@ class FilteredExtent extends React.Component {
         this.refMap.current.leafletElement.fitBounds(extentBounds, { padding: [10, 10] });
     }
 ```
+
+### Rounding
+```
+// Method to round a decimal value to a specific number of decimals. From https://www.jacklmoore.com/notes/rounding-in-javascript/
+export const round = (value, decimals) => {
+    return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+}
+
+```
