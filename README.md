@@ -11,6 +11,9 @@ let data = [
 ];
 let result = data.map(({ a, b }) => ({a, b}));
 
+// Returning an array of object with a subset of fields, plus rename the object keys
+const newArray = data.map(({id, FacilityName}) => ({values: id , option:FacilityName}))
+
 // Longer way returning an object from map with a subset of fields
 objectArray.map(obj => {
     let rObj = {}
