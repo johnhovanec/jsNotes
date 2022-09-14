@@ -129,6 +129,11 @@ function findOneElement (array1, array2) {
 array1.some(x => array2.includes(x))
 ```
 
+``` js
+// Check if array of object contains a given property value
+obj.stratifications.some((strat) => strat.field === 'target value')
+```
+
 ### `sort`
 ``` js
 // Sort an array of objects by a property value
