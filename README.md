@@ -130,7 +130,7 @@ array1.some(x => array2.includes(x))
 ```
 
 ``` js
-// Check if array of object contains a given property value
+// Check if an array of objects contains a given property value
 obj.stratifications.some((strat) => strat.field === 'target value')
 ```
 
