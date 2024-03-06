@@ -4,6 +4,13 @@ Snippets of useful code samples for JavaScript, React, Leaflet...
 ## Javascript
 ### `map`
 ``` js
+// Returning an array from an array of objects based on a single field
+let data = [
+    {value: 2020, name: 'a'}, {value: 2022, name: 'b'},
+    {value: 2023, name: 'c'}, {value: 2024, name: 'd'},
+];
+let result = data.map(x => x.value);
+
 // Returning an object from map with a subset of fields using destructuring
 let data = [
     {a:1,b:5,c:9}, {a:2,b:6,c:10},
