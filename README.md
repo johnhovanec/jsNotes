@@ -165,6 +165,9 @@ return a.county > b.county ? 1 : -1;
 // Find if an array of objects match a property in an array of filters
 itemsList.filter(item => item.group.includes(filters.find(filter => filter.includes(item.group))))
 
+// A second example where 'label' is a property on the arrayOfObjects
+arrayOfObjects.filter(item => ageGroups.includes(item.label))  
+
 // Longer way with a forEach loop
 let res = []
 itemsList.forEach((item) => {
