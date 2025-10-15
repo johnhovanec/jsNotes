@@ -454,3 +454,45 @@ export const round = (value, decimals) => {
 }
 
 ```
+
+### General Notes
+JS runs line by line and 'executes' each line, known as the thread of execution. JS is single threaded. Aim to refine your technical communication, so you can verbalize what is happening in code. 
+
+#### Execution context: 
+Created to run the code of a function, it includes a thread of execution and memory. Once we start a program we begin a global execution context. Each execution's local memory includes parameters of the function and any variables or functions declared within the function. Once the function returns the execution context is deleted. 
+
+A `for` loop gets its own protected namespace, but not an execution context. 
+
+`Parameter`: the placeholder's name 
+
+`Argument`:  the actual value passed in 
+
+`Call stack`: how JS keeps tract of which function is running. The global execution context is always at the bottom of the call stack. 
+
+ 
+
+#### Higher Order Functions: 
+We may not want to decide exactly what some of our functionality is until we run our function. Like leaving the functionality TBD when we actually run the function. Functions passed as an argument to another function are treated as a value and can be executed later. The outer function that takes in a function is the higher-order function, the function we insert as a parameter to another function is the callback. Note that Higher Order Functions can take in or pass out a function. 
+
+Functions are first class objects in JS: They have everything that objects have. 
+
+ 
+#### Functions
+
+##### Arrow functions:  
+Use =>, may omit parens, return statement or label, but know that it is a fully functional function definition. They improve the legibility of small bits of code, it is syntactic sugar. Under the hood, there are deeper ramifications.  
+
+
+##### Function declaration: 
+
+function add(a, b) { 
+  return a + b; 
+} 
+
+#### Function expression:  
+
+const subtract = function(a, b) { 
+  return a - b; 
+}; 
+
+ 
